@@ -3,6 +3,7 @@ services:
   postgres:
     image: postgres:latest
     container_name: postgres_db
+    restart: always
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
@@ -15,6 +16,7 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
+    restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
@@ -26,6 +28,7 @@ services:
   airflow:
     image: apache/airflow:latest
     container_name: airflow
+    restart: always
     depends_on:
       - postgres
     environment:
@@ -38,7 +41,4 @@ services:
       - ./dags:/opt/airflow/dags
       - ./scripts:/opt/airflow/scripts
       - ./data:/opt/airflow/data
-    command: ["standalone"]
-
-volumes:
-  postgres_data:
+      - ./airflow/

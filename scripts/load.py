@@ -6,7 +6,7 @@ from transform import transform
 def load():
     # Ler configuração do banco de dados
     config = configparser.ConfigParser()
-    config.read('../config/database.ini')
+    config.read('/opt/airflow/config/database.ini')
     
     user = config['postgresql']['user']
     password = config['postgresql']['password']

@@ -2,7 +2,7 @@ import pandas as pd
 
 def extract():
     print("🔄 Extraindo dados do CSV...")
-    df = pd.read_csv('../data/vendas.csv')  # Caminho do CSV
+    df = pd.read_csv('/opt/airflow/data/vendas.csv')  # Caminho no container
     print(df.head())
     return df
 
